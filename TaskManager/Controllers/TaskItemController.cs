@@ -103,7 +103,7 @@ namespace TaskManager.Controllers
             };
 
             _context.Tasks.Add(task);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             var createdTask = await _context.Tasks
                             .Include(t => t.User)
@@ -125,7 +125,7 @@ namespace TaskManager.Controllers
                             })
                             .FirstAsync();
 
-            return CreatedAtAction(nameof(GetTaskById), new { id = createdTask.Id, createdAt = createdTask.CreatedAt });
+            return CreatedAtAction(nameof(GetTaskById), new { id = createdTask.Id }, createdTask);
         }
 
         [HttpPut("{id}")]

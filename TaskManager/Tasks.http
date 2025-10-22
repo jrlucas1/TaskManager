@@ -1,0 +1,127 @@
+### Variáveis
+@baseUrl = https://localhost:7118
+@userId = 1
+@categoryId = 1
+
+### ==========================
+### TASKS - CRUD Completo
+### ==========================
+
+### GET - Buscar todas as tasks
+GET {{baseUrl}}/api/TaskItem
+Accept: application/json
+
+###
+
+### GET - Buscar task por ID
+GET {{baseUrl}}/api/TaskItem/1
+Accept: application/json
+
+###
+
+### POST - Criar nova task (Priority: Low=1, Medium=2, High=3, Urgent=4)
+### (Situation: Pending=1, InProgress=2, Completed=3, Cancelled=4)
+POST {{baseUrl}}/api/TaskItem
+Content-Type: application/json
+
+{
+  "title": "Implementar API de Tasks",
+  "description": "Criar CRUD completo com Entity Framework",
+  "dueDate": "2025-10-30T10:00:00",
+  "priority": 3,
+  "situation": 1,
+  "userId": 1,
+  "categoryId": 3
+}
+
+###
+
+### POST - Criar task sem categoria
+POST {{baseUrl}}/api/TaskItem
+Content-Type: application/json
+
+{
+  "title": "Estudar ASP.NET Core",
+  "description": "Aprender sobre Controllers e DTOs",
+  "dueDate": "2025-10-25T15:00:00",
+  "priority": 2,
+  "situation": 1,
+  "userId": 1,
+  "categoryId": null
+}
+
+###
+
+### POST - Criar task urgente em andamento
+POST {{baseUrl}}/api/TaskItem
+Content-Type: application/json
+
+{
+  "title": "Resolver bug crítico",
+  "description": "Bug em produção",
+  "dueDate": "2025-10-23T09:00:00",
+  "priority": 4,
+  "situation": 2,
+  "userId": 1,
+  "categoryId": 1
+}
+
+###
+
+### POST - Criar task com prioridade baixa
+POST {{baseUrl}}/api/TaskItem
+Content-Type: application/json
+
+{
+  "title": "Organizar documentação",
+  "description": "Revisar e organizar docs do projeto",
+  "dueDate": "2025-11-05T14:00:00",
+  "priority": 1,
+  "situation": 1,
+  "userId": 1,
+  "categoryId": 2
+}
+
+###
+
+### PUT - Atualizar task (marcar como concluída)
+PUT {{baseUrl}}/api/TaskItem/1
+Content-Type: application/json
+
+{
+  "title": "Implementar API de Tasks - CONCLUÍDO",
+  "description": "CRUD completo finalizado com sucesso!",
+  "dueDate": "2025-10-30T10:00:00",
+  "priority": 3,
+  "situation": 3,
+  "userId": 1,
+  "categoryId": 1
+}
+
+###
+
+### PUT - Mudar prioridade da task
+PUT {{baseUrl}}/api/TaskItem/2
+Content-Type: application/json
+
+{
+  "title": "Estudar ASP.NET Core",
+  "description": "Aprender sobre Controllers e DTOs",
+  "dueDate": "2025-10-25T15:00:00",
+  "priority": 4,
+  "situation": 2,
+  "userId": 1,
+  "categoryId": null
+}
+
+###
+
+### DELETE - Deletar task
+DELETE {{baseUrl}}/api/TaskItem/3
+
+###
+
+### DELETE - Deletar outra task
+DELETE {{baseUrl}}/api/TaskItem/4
+
+###
