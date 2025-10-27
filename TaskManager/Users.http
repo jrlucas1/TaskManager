@@ -1,0 +1,35 @@
+@TaskManager_HostAddress = https://localhost:7118
+@userId = 1
+
+### 
+GET {{TaskManager_HostAddress}}/api/User
+Accept: application/json
+
+### 
+GET {{TaskManager_HostAddress}}/api/User/{{userId}}
+Accept: application/json
+
+### 
+POST {{TaskManager_HostAddress}}/api/User
+Content-Type: application/json
+
+{
+  "name": "João Silva",
+  "email": "joao.silva@email.com",
+  "password": "SenhaSegura123!"
+}
+
+###
+PUT {{TaskManager_HostAddress}}/api/User/{{userId}}
+Content-Type: application/json
+
+{
+  "id": {{userId}},
+  "name": "João Silva Atualizado",
+  "email": "joao.silva.novo@email.com",
+  "password": "NovaSenha456!"
+}
+
+###
+DELETE {{TaskManager_HostAddress}}/api/User/{{userId}}
+Accept: application/json

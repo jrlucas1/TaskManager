@@ -1,0 +1,39 @@
+@TaskManager_HostAddress = https://localhost:7118
+@categoryId = 4
+
+###
+GET {{TaskManager_HostAddress}}/api/Category
+Accept: application/json
+
+###
+GET {{TaskManager_HostAddress}}/api/Category/{{categoryId}}
+Accept: application/json
+
+###
+POST {{TaskManager_HostAddress}}/api/Category
+Content-Type: application/json
+
+{
+  "name": "Trabalho",
+  "description": "Tarefas relacionadas ao trabalho",
+  "color": "#FF5733",
+  "priority": 3,
+  "status": 1
+}
+
+###
+PUT {{TaskManager_HostAddress}}/api/Category/{{categoryId}}
+Content-Type: application/json
+
+{
+  "id": {{categoryId}},
+  "name": "Trabalho Urgente",
+  "description": "Tarefas de alta prioridade no trabalho",
+  "color": "#FF0000",
+  "priority": 4,
+  "status": 1
+}
+
+###
+DELETE {{TaskManager_HostAddress}}/api/Category/{{categoryId}}
+Accept: application/json
