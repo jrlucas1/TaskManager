@@ -10,8 +10,8 @@
 ## Roadmap de Implementação
 
 ### Fase 1 - Fundação Sólida (1-2 semanas)
-- [ ] Repository Pattern + Unit of Work
-- [ ] Service Layer
+- [X] Repository Pattern + Unit of Work
+- [X] Service Layer
 - [ ] AutoMapper (pacote já instalado)
 - [ ] FluentValidation (pacote já instalado)
 
