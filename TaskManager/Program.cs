@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManager.Data;
+using TaskManager.Models.Entities;
+using TaskManager.Repositories.Implementations;
+using TaskManager.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,10 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<TaskManagerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IBaseRepository<TaskItem>, TaskItemRepository>();
+builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
+builder.Services.AddScoped<IBaseRepository<Category>, CategoryRepository>();
 
 var app = builder.Build();
 
